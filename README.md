@@ -1,9 +1,6 @@
-### 📌 **README.md** (Formato Markdown)
-
-```markdown
 # Blockchain Explorer Crypto React Native App
 
-![Project Screenshot](https://github.com/KRSNA-BLR/BlockchainExplorerCryptoReactNativeApp/blob/main/assets/app.png)
+https://github.com/KRSNA-BLR/BlockchainExplorerCryptoReactNativeApp/blob/main/assets/app.png
 
 ## Overview
 Blockchain Explorer Crypto is a **React Native boilerplate** designed to track the top **20 cryptocurrencies** in real-time, leveraging the **CoinGecko API**. This project serves as a foundational template for developers looking to explore **React Native**, API integration, and real-time data fetching.
@@ -88,4 +85,3 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 ---
 
 ### 🚀 **Blockchain + React Native = The Future!**
-```
