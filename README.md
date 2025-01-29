@@ -1,97 +1,91 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+### 📌 **README.md** (Formato Markdown)
 
-# Getting Started
+```markdown
+# Blockchain Explorer Crypto React Native App
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![Project Screenshot](https://github.com/KRSNA-BLR/BlockchainExplorerCryptoReactNativeApp/blob/main/assets/app.png)
 
-## Step 1: Start Metro
+## Overview
+Blockchain Explorer Crypto is a **React Native boilerplate** designed to track the top **20 cryptocurrencies** in real-time, leveraging the **CoinGecko API**. This project serves as a foundational template for developers looking to explore **React Native**, API integration, and real-time data fetching.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Features
+- **Live Cryptocurrency Data**: Fetches and displays real-time prices for the top **20 cryptocurrencies**.
+- **Multi-Currency Support**: Converts prices into **USD, EUR, GBP, JPY, AUD**.
+- **Automated Data Updates**: Refreshes every **30 seconds** using polling.
+- **Optimized UI/UX**: Styled list items with dynamic branding and a header logo.
+- **Well-Structured Code**: Organized React Native project with clean **folder hierarchy**.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Tech Stack
+- **React Native**: Cross-platform mobile app development.
+- **Axios**: API request handling.
+- **CoinGecko API**: Free cryptocurrency market data.
+- **JavaScript/TypeScript**: Codebase compatibility.
 
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+## Project Structure
+```
+beginnerCriptoApp/
+│── app/
+│   ├── screens/       # App screens
+│   ├── services/      # API calls and logic
+│── assets/           # Images, icons, and branding
+│── node_modules/     # Dependencies
+│── android/         # Android native files
+│── ios/             # iOS native files
+│── .gitignore       # Ignored files
+│── README.md        # Project documentation
+│── package.json     # Dependencies & scripts
 ```
 
-## Step 2: Build and run your app
+## Installation & Setup
+### **Prerequisites**
+Ensure you have the following installed:
+- **Node.js** (v14+ recommended)
+- **React Native CLI**
+- **Android Studio/Xcode** (For device testing)
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### **Installation Steps**
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/KRSNA-BLR/BlockchainExplorerCryptoReactNativeApp.git
+   cd BlockchainExplorerCryptoReactNativeApp
+   ```
+2. **Install dependencies**:
+   ```sh
+   npm install
+   ```
+3. **Run the application**:
+   ```sh
+   npx react-native run-android  # For Android
+   npx react-native run-ios      # For iOS
+   ```
 
-### Android
+## API Integration
+The app communicates with **CoinGecko API** through the `cryptoApi.js` service:
 
-```sh
-# Using npm
-npm run android
+```javascript
+import axios from 'axios';
+const API_URL = 'https://api.coingecko.com/api/v3';
 
-# OR using Yarn
-yarn android
+export const getTopCryptos = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/coins/markets`, {
+            params: { vs_currency: 'usd', order: 'market_cap_desc', per_page: 20, page: 1 }
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching cryptocurrency data:', error);
+        return [];
+    }
+};
 ```
 
-### iOS
+## Contribution Guidelines
+We welcome contributions! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## License
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+---
 
-```sh
-bundle install
+### 🚀 **Blockchain + React Native = The Future!**
 ```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
